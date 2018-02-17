@@ -74,6 +74,8 @@
 
                     flash("Channel has been successfully created!");
 
+                    this.$modal.hide('new-channel');
+
                     // TODO: Update channel list with newly created channel.
                     // 		 Render channels with Vue.js
                 });
