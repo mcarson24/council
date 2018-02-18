@@ -14,35 +14,20 @@
             <tr v-if="channels.length == 0">
                 <td>Nothing here.</td>
             </tr>
-            <tr v-else
-            	class="border-b" 
-            	:class="{ 'bg-red-lighter': channel.archived }"
-            	v-for="channel in channels"
-        	>
-                <td class="text-sm p-4 border-b" v-text="channel.name"></td>
-                <td class="text-sm p-4 border-b" v-text="channel.slug"></td>
-                <td class="text-sm p-4 border-b" v-text="channel.description"></td>
-                <td class="text-sm p-4 border-b" v-text="channel.threads_count"></td>
-                <td class="text-sm p-4 border-b">
-                    <a :href="href(channel)" class="text-blue link text-sm">Edit</a>
-                </td>
-            </tr>
+            <channel v-else 
+                     v-for="channel in channels" 
+                     :channel="channel" 
+                     :key="channel.id"
+                     >
+            </channel>
         </tbody>
     </table>
 </template>
 
 <script>
+    import Channel from './Channel.vue';
 	export default {
-		props: ['channels'],
-		data() {
-			return {
-				channels: this.channels
-			}
-		},
-		methods: {
-			href(channel) {
-				return location.pathname + `/${channel.slug}/edit`;
-			}
-		}
+        components: { Channel },
+		props: ['channels']
 	}
 </script>
