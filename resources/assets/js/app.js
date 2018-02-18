@@ -30,6 +30,7 @@ Vue.component("thread-view", require("./pages/Thread.vue"));
 
 // TODO: May only need to load this within a ChannelsView component
 Vue.component("new-channel", require("./components/NewChannel"));
+Vue.component("channels", require("./components/Channels"));
 
 const app = new Vue({
     el: "#app",

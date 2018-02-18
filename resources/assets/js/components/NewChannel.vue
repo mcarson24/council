@@ -66,7 +66,6 @@
 					description: this.description
 				}).catch(error => {
 					this.errors = error.response.data.errors;
-					console.log(this.errors);
 					flash(error.response.data.message, 'danger');
 				}).then(({ data }) => {
                     this.name = "";
@@ -78,6 +77,7 @@
 
                     // TODO: Update channel list with newly created channel.
                     // 		 Render channels with Vue.js
+                    // TODO: Reset form when it is closed (clicking cancel)
                 });
 			},
 			hasError(field) {
